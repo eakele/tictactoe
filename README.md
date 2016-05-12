@@ -21,7 +21,7 @@ row: adjust the postions and size of the rows as I have three of them inside my 
 cell : adjust the size and the position of each cell as I have three of them in each row.
 :hover: I use the hover selector to change the color of cells as mouse hovers over them.
 cell-x::before: used to inset content before the cell-x class and style the inserted content.
-display: is an id for html <h1> element. I use some styles to decorate it.
+display: is an id for html h1 element. I use some styles to decorate it.
 reset: is an id for the button, I used it to hide the button until the game if finished as a win or as a draw, where the button will be used to reset all cells for a new game.
 
 jQuery part of the code
