@@ -8,7 +8,7 @@ I use HTML for the design of tic tac toe game.
 
 h1 : used to display the name of the game, which is 'tic tac toe' on the left corner of the browser.<br />
 button : used to reset the html elements after a game is either finished by a winner or a game finishes as a stalmate.<br />
-div: I have a div which contains the whole game with the class name of 'gameBoard' inside it I have three other divs as a row with a class* name of 'row'. Inside each row I have three divs which represents individual cells with a class name of 'cell'.
+div: I have a div which contains the whole game with the class name of 'gameBoard' inside it I have three other divs as a row with a class name of 'row'. Inside each row I have three divs which represents individual cells with a class name of 'cell'.
 I have a link to my css file and javascript file as well as link to jQuery version that I used.
 
 CSS
@@ -17,7 +17,8 @@ I used CSS for styling
 
 body : I use CSS here to be able to use the whole window.<br />
 gameBoard: make my game board 300px by 300px using css and its position on window as well as coloring.<br />
-row: adjust the postions and size of the rows as I have three of them inside my gameBoard. The flex property let the items to be the same<br /> length regardless of its content.<br />
+row: adjust the postions and size of the rows as I have three of them inside my gameBoard. The flex property let the items
+to be the same length regardless of its content.<br />
 cell : adjust the size and the position of each cell as I have three of them in each row.<br />
 :hover: I use the hover selector to change the color of cells as mouse hovers over them.<br />
 cell-x::before: used to inset content before the cell-x class and style the inserted content.<br />
@@ -26,7 +27,7 @@ reset: is an id for the button, I used it to hide the button until the game if f
 
 jQuery part of the code
 
-Within any element with class .gameBoard, listen for clicks on any element with a class .cell. and trigger jQuery event handler. Use event.currentTarget to find the DOM element that was clicked and store it in a variable 'square'.
+Within any element with class .gameBoard, listen for clicks on any element with a class .cell and trigger jQuery event handler. Use event.currentTarget to find the DOM element that was clicked and store it in a variable 'square'.
 
 ```
 $('.board').on('click', '.square', function(event) {
