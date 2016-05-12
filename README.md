@@ -6,23 +6,23 @@ HTML
 
 I use HTML for the design of tic tac toe game.
 
-| *h1 : used to display the name of the game, which is 'tic tac toe' on the left corner of the browser.*
-| *button : used to reset the html elements after a game is either finished by a winner or a game finishes as a stalmate.*
-| *div: I have a div which contains the whole game with the class name of 'gameBoard' inside it I have three other divs as a row with a class* name of 'row'. Inside each row I have three divs which represents individual cells with a class name of 'cell'.
+h1 : used to display the name of the game, which is 'tic tac toe' on the left corner of the browser.<br />
+button : used to reset the html elements after a game is either finished by a winner or a game finishes as a stalmate.<br />
+div: I have a div which contains the whole game with the class name of 'gameBoard' inside it I have three other divs as a row with a class* name of 'row'. Inside each row I have three divs which represents individual cells with a class name of 'cell'.
 I have a link to my css file and javascript file as well as link to jQuery version that I used.
 
 CSS
 
 I used CSS for styling
 
-| *body : I use CSS here to be able to use the whole window.*
-| *gameBoard: make my game board 300px by 300px using css and its position on window as well as coloring.*
-| *row: adjust the postions and size of the rows as I have three of them inside my gameBoard. The flex property let the items to be the same* length regardless of its content.
-| *cell : adjust the size and the position of each cell as I have three of them in each row.*
-| *:hover: I use the hover selector to change the color of cells as mouse hovers over them.*
-| *cell-x::before: used to inset content before the cell-x class and style the inserted content.*
-| *display: is an id for html h1 element. I use some styles to decorate it.*
-| *reset: is an id for the button, I used it to hide the button until the game if finished as a win or as a draw, where the button will be used* to reset all cells for a new game.
+body : I use CSS here to be able to use the whole window.<br />
+gameBoard: make my game board 300px by 300px using css and its position on window as well as coloring.<br />
+row: adjust the postions and size of the rows as I have three of them inside my gameBoard. The flex property let the items to be the same<br /> length regardless of its content.<br />
+cell : adjust the size and the position of each cell as I have three of them in each row.<br />
+:hover: I use the hover selector to change the color of cells as mouse hovers over them.<br />
+cell-x::before: used to inset content before the cell-x class and style the inserted content.<br />
+display: is an id for html h1 element. I use some styles to decorate it.<br />
+reset: is an id for the button, I used it to hide the button until the game if finished as a win or as a draw, where the button will be used to reset all cells for a new game.
 
 jQuery part of the code
 
@@ -40,7 +40,7 @@ I used the jQuery .addClass to fill the square with either 'X' or 'O' when a use
 the example below uses a class which adds 'X'.
 ```
 $('.gameBoard').on('click', '.cell', function(event) {
-  Select the square//
+  //Select the square
   var square = $(event.currentTarget);
   square.addClass('cell-x');
 });
@@ -54,11 +54,11 @@ Initialize current player move as 'x'
 var move = 'x';
 ```
 $('.gameBoard').on('click', '.cell', function(event) {
-  Select the square//
+  //Select the square
   var square = $(event.currentTarget);
   square.addClass('cell-' + move);
 
-  Swap current player's move//
+  //Swap current player's move
   if (move === 'x') {
     move = 'o';
   } else {
@@ -73,11 +73,11 @@ Initialize current player move as 'x'
 var move = 'x';
 
 $('.gameBoard').on('click', ".cell:not('.cell-x, .cell-o')", function(event) {
-   Select the square//
+  //Select the square
   var square = $(event.currentTarget);
   square.addClass('cell-' + move);
 
-  Swap current player's move//
+  //Swap current player's move
   if (move === 'x') {
     move = 'o';
   } else {
@@ -95,30 +95,30 @@ In the next step the index of each square that is chosen by each player  is reco
 Here is the program up to this point:
 ```
 var winningCombinations = [
-  Horizontals//
+  //Horizontals
   [0, 1, 2],
   [3, 4, 5],
   [6, 7, 8],
 
-  Verticals//
+  //Verticals
   [0, 3, 6],
   [1, 4, 7],
   [2, 5, 8],
 
-  Diagonals//
+  //Diagonals
   [0, 4, 8],
   [2, 4, 6]
 ];
 
-Initialize current player move as 'x'//
+//Initialize current player move as 'x'
 var move = 'x';
 
 $('.gameBoard').on('click', ".cell:not('.cell-x, .cell-o')", function(event) {
-  Select the square//
+  //Select the square
   var square = $(event.currentTarget);
   square.addClass('cell-' + move);
 
-  Swap current player's move//
+  //Swap current player's move
   if (move === 'x') {
     move = 'o';
   } else {
@@ -138,17 +138,17 @@ var chosenCells = {
 }
 
 $('.gameBoard').on('click', ".cell:not('.cell-x, .cell-o')", function(event) {
-  Select the square//
+  //Select the square
   var square = $(event.currentTarget);
   square.addClass('cell-' + move);
 
-  Record player's choice//
+  //Record player's choice
   var indexOfSquare = $('.gameBoard .cell').index(square);
   var currentPlayercells = chosenCells[move]
   currentPlayercells.push(indexOfSquare);
 
 
-  Swap current player's move//   
+  //Swap current player's move  
   if (move === 'x') {
     move = 'o';
   } else {
@@ -161,16 +161,16 @@ Check all of the player's choices against each of the winning combinations to de
 look at each of the winning combinations, and then determine if the player has all of the required squares. This is done by iterating over each of the squares inside of each combination, and using $.inArray() to determine the currentPlayercells array contains the square. $.inArray() return -1 if a match is not found.
 
 ```
-Check for win//
+//Check for win
 //
-For each winning combination//
+//For each winning combination
 $.each(winningCombinations, function(index, combination) {
-  Stary by assuming that the player has all of the squares//
+//  Stary by assuming that the player has all of the squares
   var hasAllSquares = true;
 
-  For each of squares in the combination//
+  //For each of squares in the combination
   $.each(combination, function(index, square) {
-    If the player's chosen squares does not contain the current square//
+    //If the player's chosen squares does not contain the current square
     if ($.inArray(square, currentPlayercells) === -1) {
       hasAllSquares = false;
     }
